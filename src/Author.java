@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 public class Author {
     private String firstName;
     private String middleName;
@@ -36,5 +31,29 @@ public class Author {
 
     public String getFirstName() {
         return this.firstName;
+    }
+
+
+    public String toString() {
+        String authorToString = this.getFirstName() + " " + this.getMiddleName() + " " + this.getLastName();
+        return authorToString;
+    }
+
+    public boolean equalsAuthor(Author author1, Author author2) {
+        if (author1.getFirstName().equals(author2.getFirstName()) &&
+                author1.getMiddleName().equals(author2.getMiddleName()) &&
+                author1.getLastName().equals(author2.getLastName())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        int var = 0;
+        var += this.getFirstName().length();
+        var += this.getMiddleName().length();
+        var += this.getLastName().length();
+        return var;
     }
 }

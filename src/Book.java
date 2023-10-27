@@ -1,11 +1,6 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 public class Book {
     private String nameBook;
-    Author author;
+    private Author author;
     private int year;
 
     public Book(String nameBook, Author author, int year) {
@@ -36,5 +31,29 @@ public class Book {
 
     public int getYear() {
         return this.year;
+    }
+
+    public String bookToString() {
+        String bookToStr = this.getNameBook() + " " + author.toString() + " " + Integer.toString(this.getYear());
+        return bookToStr;
+    }
+
+    public boolean equalsBooks(Book book1) {
+
+        if (book1.getYear() == this.getYear() &&
+                book1.getNameBook().equals(this.getNameBook()) &&
+                author.equalsAuthor(book1.getAuthor(), this.getAuthor())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        int var = 0;
+        var += this.getYear();
+        var += this.getNameBook().length();
+        var += author.hashCode();
+        return var;
     }
 }
