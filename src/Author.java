@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Author {
     private String firstName;
     private String middleName;
@@ -39,7 +41,7 @@ public class Author {
         return authorToString;
     }
 
-    public boolean equalsAuthor(Author author1, Author author2) {
+    public boolean equals(Author author1, Author author2) {
         if (author1.getFirstName().equals(author2.getFirstName()) &&
                 author1.getMiddleName().equals(author2.getMiddleName()) &&
                 author1.getLastName().equals(author2.getLastName())) {
@@ -50,10 +52,7 @@ public class Author {
     }
 
     public int hashCode() {
-        int var = 0;
-        var += this.getFirstName().length();
-        var += this.getMiddleName().length();
-        var += this.getLastName().length();
-        return var;
+        return (Objects.hashCode(this.getFirstName()) * Objects.hashCode(this.getMiddleName()) * Objects.hashCode(this.getLastName()));
+
     }
 }
