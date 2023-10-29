@@ -41,18 +41,30 @@ public class Author {
         return authorToString;
     }
 
-    public boolean equals(Author author1, Author author2) {
-        if (author1.getFirstName().equals(author2.getFirstName()) &&
-                author1.getMiddleName().equals(author2.getMiddleName()) &&
-                author1.getLastName().equals(author2.getLastName())) {
+    public boolean equals(Object author2) {
+
+        if(this.getClass() != author2.getClass())
+        {
+            return false;
+        }
+
+        Author au2 = (Author) author2;
+
+        if (this.getFirstName().equals(au2.getFirstName()) &&
+                this.getMiddleName().equals(au2.getMiddleName()) &&
+                this.getLastName().equals(au2.getLastName())) {
             return true;
         } else {
             return false;
         }
     }
 
+
     public int hashCode() {
         return (Objects.hashCode(this.getFirstName()) * Objects.hashCode(this.getMiddleName()) * Objects.hashCode(this.getLastName()));
 
     }
+
+
+
 }

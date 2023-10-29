@@ -40,11 +40,17 @@ public class Book {
         return bookToStr;
     }
 
-    public boolean equals(Book book1) {
+    public boolean equals(Object book1) {
 
-        if (book1.getYear() == this.getYear() &&
-                book1.getNameBook().equals(this.getNameBook()) &&
-                author.equals(book1.getAuthor(), this.getAuthor())) {
+        if (this.getClass() != book1.getClass()) {
+            return false;
+        }
+
+        Book bk1 = (Book) book1;
+
+        if (bk1.getYear() == this.getYear() &&
+                bk1.getNameBook().equals(this.getNameBook()) &&
+                author.equals(bk1.getAuthor())) {
             return true;
         } else {
             return false;
